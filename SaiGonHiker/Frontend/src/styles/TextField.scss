@@ -1,0 +1,14 @@
+.password-field {
+  position: relative;
+  input::-ms-reveal,
+  input::-ms-clear {
+    display: none;
+  }
+  input{
+    padding-right: 40px;
+  }
+}
+
+.fw-bold{
+  width: 235px;
+}

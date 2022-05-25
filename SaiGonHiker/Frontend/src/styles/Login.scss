@@ -1,0 +1,24 @@
+.content-login{
+    border: 1px solid black;
+    margin-block: auto;
+    font-family: Segoe UI, Arial;
+    font-weight: bold;
+    color: rgba(207,35,56,1);
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #EEEEEE;
+} 
+.login-form{
+    border: 1px solid black;
+    border-bottom-left-radius:5px ;
+    border-bottom-right-radius:5px ;
+    
+    .error-context{
+        margin-top: -30px;
+    }
+}
+
+.container{
+    margin-top: 150px;
+}

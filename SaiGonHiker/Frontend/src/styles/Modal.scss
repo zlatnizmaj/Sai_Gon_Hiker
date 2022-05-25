@@ -1,0 +1,66 @@
+.modal-90w {
+    width: 580px;
+    .modal-content {
+        border-width: 1.5px;
+        border-radius: 10px;
+        border-color:  black;
+    }
+
+    .modal-header {
+        background-color: rgba(239,241,245,1);
+        border-radius: 10px 10px 0px 0px;
+        border-width: 1.5px;
+        border-bottom-color:  black;
+
+        .close-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .modal-title {
+            color: rgba(207,35,56,1);
+            font-weight: bold;
+            padding-left: 40px;
+        }
+    }
+
+    .modal-body {
+        padding-left: 40px;
+    }
+}
+
+.modal-dialog {
+    max-width: 750px;
+    margin: 1.75rem auto
+}
+
+.modal-700w {
+    width: 750px;
+    .modal-content {
+        border-width: 1.5px;
+        border-radius: 10px;
+        border-color:  black;
+    }
+
+    .modal-header {
+        background-color: rgba(239,241,245,1);
+        border-radius: 10px 10px 0px 0px;
+        border-width: 1.5px;
+        border-bottom-color:  black;
+
+        .close-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .modal-title {
+            color: rgba(207,35,56,1);
+            font-weight: bold;
+            padding-left: 40px;
+        }
+    }
+
+    .modal-body {
+        padding-left: 40px;
+    }
+}
