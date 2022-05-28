@@ -9,12 +9,12 @@ type InputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
     name: string;
     isrequired?: boolean;
     options: ISelectOption[];
-    isCol?: boolean
 };
 
 const CheckboxField: React.FC<InputFieldProps> = (props) => {
     const [field, { error, touched, value }, { setValue }] = useField(props);
-    const { name, options, label, isrequired, isCol } = props;
+
+    const { name, options, label, isrequired } = props;
 
     const handleChange = (e) => {
         setValue(e.target.value)
@@ -22,18 +22,17 @@ const CheckboxField: React.FC<InputFieldProps> = (props) => {
 
     return (
         <>
-            <div className={`mb-3 row`}>
-                <label className={`col-4 col-form-label d-flex ${!isCol?"pt-0":""}`}>
+            <div className="mb-3 row">
+                <label className="col-4 col-form-label d-flex">
                     {label}
                     {isrequired && (
-                        <div className="invalid ml-1">* </div>
+                        <div className="invalid ml-1">(*)</div>
                     )}
                 </label>
 
-                <div className={`col d-flex ${!isCol?"flex-column":""}`} >
+                <div className="col">
                     {
                         options.map(({ id, label: optionLabel, value: optionValue }) => (
-                            
                             <div className="form-check form-check-inline" key={id}>
                                 <input className="form-check-input"
                                     id={id.toString()}
@@ -41,7 +40,7 @@ const CheckboxField: React.FC<InputFieldProps> = (props) => {
                                     name={name}
                                     value={optionValue}
                                     onChange={handleChange}
-                                    checked={optionValue.toString() === value.toString()}
+                                    checked={optionValue === value}
                                 />
                                 <label className="form-check-label" htmlFor={id.toString()}>
                                     {optionLabel}

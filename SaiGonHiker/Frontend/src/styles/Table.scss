@@ -24,6 +24,10 @@
             border-top: none;
         }
     
+        td:last-child {
+            border: none;
+        }
+    
         th {
             padding: 0;
             border-bottom: 0 2px solid #dee2e6;
@@ -32,18 +36,6 @@
 
         tr:hover {
             cursor: pointer;
-        }
-    }
-
-    .hide-last{
-        td:last-child{
-            border: none;
-        }
-    }
-
-    .hide-first{
-        td:first-child{
-            border: none;
         }
     }
 }

@@ -11,7 +11,6 @@ using SaiGonHiker.DataAccessor.Data;
 using SaiGonHiker.DataAccessor.Entities;
 using System;
 using System.Text;
-using static SaiGonHiker.Requirement.ValidateUser;
 
 namespace SaiGonHiker.Extensions.ServiceCollection
 {
@@ -19,18 +18,18 @@ namespace SaiGonHiker.Extensions.ServiceCollection
     {
         public static void AddAuthenticationRegister(this IServiceCollection services)
         {
-            services.AddIdentity<Users, IdentityRole<int>>(options =>
-            {
-                options.SignIn.RequireConfirmedAccount = false;
-                options.Password.RequireDigit = true;
-                options.Password.RequiredLength = 5;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = true;
-                options.Password.RequireLowercase = true;
+            // services.AddIdentity<Users, IdentityRole<int>>(options =>
+            // {
+            //     options.SignIn.RequireConfirmedAccount = false;
+            //     options.Password.RequireDigit = true;
+            //     options.Password.RequiredLength = 5;
+            //     options.Password.RequireNonAlphanumeric = false;
+            //     options.Password.RequireUppercase = true;
+            //     options.Password.RequireLowercase = true;
 
-            })
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+            // })
+            //     .AddEntityFrameworkStores<ApplicationDbContext>()
+            //     .AddDefaultTokenProviders();
 
             services.AddAuthentication(options =>
             {
@@ -78,11 +77,11 @@ namespace SaiGonHiker.Extensions.ServiceCollection
                         },
                     };
                 });
-             services.AddAuthorization(option =>
-            {
-                option.AddPolicy("Admin", policy => policy.Requirements.Add(new UserRoleRequirement("Admin")));
-            });
-            services.AddSingleton<IAuthorizationHandler, UserRoleHandler>();
+            //  services.AddAuthorization(option =>
+            // {
+            //     option.AddPolicy("Admin", policy => policy.Requirements.Add(new UserRoleRequirement("Admin")));
+            // });
+            // services.AddSingleton<IAuthorizationHandler, UserRoleHandler>();
         }
     }
 }

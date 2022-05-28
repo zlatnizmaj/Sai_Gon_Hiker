@@ -1,19 +1,19 @@
-using SaiGonHiker.Extensions.ServiceCollection;
+using Rookie.AssetManagement.Extensions.ServiceCollection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SaiGonHiker.Middlewares;
+using Rookie.AssetManagement.Middlewares;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using SaiGonHiker.Business;
-using SaiGonHiker.DataAccessor;
+using Rookie.AssetManagement.Business;
+using Rookie.AssetManagement.DataAccessor;
 using FluentValidation.AspNetCore;
 using System.Reflection;
 
-namespace SaiGonHiker
+namespace Rookie.AssetManagement
 {
     public class Startup
     {
@@ -45,28 +45,12 @@ namespace SaiGonHiker
                         ops.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
                         ops.JsonSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
                         ops.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-                    })
-                .AddNewtonsoftJson(options =>
-                {
-                    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-                });
+                    });
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "Frontend/build";
             });
-
             services.AddSwagger();
-
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowOrigins",
-                    builder =>
-                    {
-                        builder.WithOrigins(Configuration["AllowOrigins"])
-                            .AllowAnyHeader()
-                            .AllowAnyMethod();
-                    });
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,7 +60,7 @@ namespace SaiGonHiker
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SaiGonHiker v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Rookie.AssetManagement v1"));
             }
             else
             {
@@ -85,7 +69,7 @@ namespace SaiGonHiker
 
             app.UseHttpsRedirection();
             app.UseSpaStaticFiles();
-            app.UseCors("AllowOrigins");
+
             app.UseRouting();
 
             app.UseAuthentication();

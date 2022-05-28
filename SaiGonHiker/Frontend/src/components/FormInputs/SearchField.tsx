@@ -6,11 +6,11 @@ import React, {
 } from "react";
 import { useField } from "formik";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import SearchModal from "../SearchModal";
-import ManageUser from "src/containers/ManageUser/List";
-library.add(faSearch);
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faSearch } from "@fortawesome/free-solid-svg-icons";
+// import SearchModal from "../SearchModal";
+// import ManageUser from "src/containers/ManageUser/List";
+// library.add(faSearch);
 type InputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   label: string;
   placeholder?: string;
@@ -77,15 +77,15 @@ const SearchField: React.FC<InputFieldProps> = (props) => {
               type="text"
               value={name}
             />
-            <FontAwesomeIcon
+            {/* <FontAwesomeIcon
               className="p-2 cursor-pointer"
               icon={"search"}
               onClick={handleShowModal}
-            />
+            /> */}
           </div>
           {error && touched && <div className="invalid">{error}</div>}
         </div>
-        <SearchModal isShow={showModal} onHide={handleHideModal}>
+        {/* <SearchModal isShow={showModal} onHide={handleHideModal}>
           {React.cloneElement(table, {
             handleSave,
             handleCancel: handleHideModal,
@@ -93,7 +93,7 @@ const SearchField: React.FC<InputFieldProps> = (props) => {
             currCodeSelected: value,
             currNameSelected: valueName,
           })}
-        </SearchModal>
+        </SearchModal> */}
       </div>
     </>
   );

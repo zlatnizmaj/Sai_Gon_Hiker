@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NotificationContainer } from 'react-notifications';
-
 
 import Header from "./Header";
 import SideBar from "./SideBar";
+import Login from "./Login";
+import TourInformation from "./TourInformation";
+import BookTour from "./BookTour";
 
 const Layout = ({ children }) => {
-
   return (
     <>
       <NotificationContainer />
-      
       <Header />
+      <Login/>
+      <TourInformation/>
+      <BookTour/>
 
       <div className="container-lg-min container-fluid">
         <div className="row mt-5">

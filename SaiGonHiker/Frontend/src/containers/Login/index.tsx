@@ -66,14 +66,14 @@ const Login = () => {
                     isrequired
                     notvalidate
                   />
-                  <TextField
+                  {/* <TextField
                     name="password"
                     label="Password"
                     type="password"
                     ispassword
                     isrequired
                     notvalidate
-                  />
+                  /> */}
 
                   <div className="text-right">
                     <button
