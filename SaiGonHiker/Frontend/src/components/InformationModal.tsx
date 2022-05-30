@@ -1,9 +1,9 @@
 import React from 'react'
 import { Modal } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faRectangleXmark } from '@fortawesome/free-regular-svg-icons'
-import { library } from '@fortawesome/fontawesome-svg-core'
-library.add(faRectangleXmark)
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faRectangleXmark } from '@fortawesome/free-regular-svg-icons'
+// import { library } from '@fortawesome/fontawesome-svg-core'
+// library.add(faRectangleXmark)
 
 type Props = {
   title: string
@@ -33,11 +33,11 @@ const InformationModal: React.FC<Props> = ({
     >
       <Modal.Header>
         <Modal.Title id="information-modal">{title}</Modal.Title>
-        <FontAwesomeIcon
+        {/* <FontAwesomeIcon
           className="text-danger close-icon mr-4 mt-2 pe-auto"
           icon={faRectangleXmark}
           onClick={onHide}
-        />
+        /> */}
 
       </Modal.Header>
 

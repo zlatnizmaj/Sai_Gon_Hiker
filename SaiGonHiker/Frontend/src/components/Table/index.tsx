@@ -1,7 +1,7 @@
 import React from "react";
 import { CaretDownFill, CaretUpFill } from "react-bootstrap-icons";
 import IColumnOption from "src/interfaces/IColumnOption";
-import {ACCSENDING ,DECSENDING } from "../../constants/paging"
+
 import Paging, { PageType } from "./Paging";
 
 export type SortType = {
@@ -15,7 +15,7 @@ type ColumnIconType = {
 }
 
 const ColumnIcon: React.FC<ColumnIconType> = ({ colValue, sortState }) => {
-  if (colValue === sortState.columnValue && sortState.orderBy === ACCSENDING) return <CaretUpFill />
+  if (colValue === sortState.columnValue && sortState.orderBy === 'Decsending') return <CaretUpFill />
 
   return (<CaretDownFill />);
 };
@@ -29,24 +29,20 @@ type Props = {
 };
 
 const Table: React.FC<Props> = ({ columns, children, page, sortState, handleSort }) => {
+
   return (
     <>
-      <div className="table-container ">
-        <table className={`table  `}>
+      <div className="table-container">
+        <table className="table">
           <thead>
             <tr>
               {
                 columns.map((col, i) => (
-                  <th key={i} style={!col.columnName?{border: "none", width: "25px"}:{}} >
-                    {!col.isSortable?
-                    <a className="btn p-0" >
-                      {col.columnName}
-                    </a>: 
-                    <a className="btn p-0" onClick={() => {
-                      handleSort!(col.columnValue)}}>
+                  <th key={i}>
+                    <a className="btn" onClick={() => handleSort!(col.columnValue)}>
                       {col.columnName}
                       <ColumnIcon colValue={col.columnValue} sortState={sortState} />
-                    </a>}
+                    </a>
                   </th>
                 ))
               }
@@ -60,7 +56,7 @@ const Table: React.FC<Props> = ({ columns, children, page, sortState, handleSort
       </div>
 
       {
-        (!(page?.totalPage == 0) && page && page.totalPage && page.totalPage > 1) && <Paging {...page} />
+        (page && page.totalPage && page.totalPage > 1) && <Paging {...page} />
       }
     </>
   );

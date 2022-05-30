@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { SetStatusType, Status } from "src/constants/status";
+import { SetStatusType } from "src/constants/status";
 import IAccount from "src/interfaces/IAccount";
 import IChangePassword from "src/interfaces/IChangePassword";
 import IError from "src/interfaces/IError";
@@ -34,32 +34,24 @@ const AuthSlice = createSlice({
                 setLocalStorage('token', account.token);
                 request.setAuthentication(account.token);
             }
+
             return {
                 ...state,
                 // status: Status.Success,
                 account,
-                isAuth: account.userName!=null,
+                isAuth: true,
                 loading: false,
             };
         },
         setStatus: (state: AuthState, action: PayloadAction<SetStatusType>) =>
         {
             const {status, error} = action.payload;
-            if (status === Status.Unauthentication){
-                return {
-                    ...state,
-                    status,
-                    isAuth: false,
-                    error,
-                    loading: false,
-                }
-            }else{
-                return {
-                    ...state,
-                    status,
-                    error,
-                    loading: false,
-                }
+
+            return {
+                ...state,
+                status,
+                error,
+                loading: false,
             }
         },
         me: (state) => {
@@ -71,27 +63,6 @@ const AuthSlice = createSlice({
             ...state,
             loading: true,
         }),
-        accountAuthReject: (state: AuthState, action: PayloadAction<IAccount>): AuthState=>{
-            let message = "";
-
-            if (action.payload.isDisabled)
-                message =  "Your account is disabled. Please contact with IT Team";
-            else if (!action.payload.isSuccess)
-                message =  "Username or password is incorrect. Please try again";
-            
-            const error: IError = {
-                error: true,
-                message
-            }
-
-            return {
-                ...state,
-                isAuth: false,
-                error,
-                loading: false,
-            };
-            
-        },
         changePassword: (state: AuthState, action: PayloadAction<ISubmitAction<IChangePassword>>) => {
             return {
                 ...state,
@@ -120,7 +91,7 @@ const AuthSlice = createSlice({
 });
 
 export const {
-    setAccount, login, setStatus, me, changePassword, logout, cleanUp, accountAuthReject
+    setAccount, login, setStatus, me, changePassword, logout, cleanUp,
 } = AuthSlice.actions;
 
 export default AuthSlice.reducer;

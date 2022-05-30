@@ -1,6 +1,7 @@
-import IBaseQueryModel from "../IBaseQueryModel";
-
-export default interface IQueryUserModel extends IBaseQueryModel {
-    Types: string[];
-    Location?: string
+export default interface IQueryUserModel {
+    page: number;
+    type: string[];
+    search: string;
+    orderBy: string;
+    orderByColumn: string;
 }

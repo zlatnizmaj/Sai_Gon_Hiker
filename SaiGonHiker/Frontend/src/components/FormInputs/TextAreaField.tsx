@@ -12,10 +12,11 @@ type TextAreaFieldType = TextareaHTMLAttributes<HTMLTextAreaElement> & {
 const TextAreaField: React.FC<TextAreaFieldType> = (props) => {
     const [field, { error, touched }, meta] = useField(props);
     const { label, isrequired, notvalidate } = props;
+
     const validateClass = () => {
-        if (touched  && error) return 'is-invalid';
+        if (touched && error) return 'is-invalid';
         if (notvalidate) return '';
-        if (touched ) return 'is-valid';
+        if (touched) return 'is-valid';
 
         return '';
     };
@@ -26,7 +27,7 @@ const TextAreaField: React.FC<TextAreaFieldType> = (props) => {
                 <label className="col-4 col-form-label d-flex">
                     {label}
                     {isrequired && (
-                        <div className="invalid ml-1">* </div>
+                        <div className="invalid ml-1">(*)</div>
                     )}
                 </label>
                 <div className="col">

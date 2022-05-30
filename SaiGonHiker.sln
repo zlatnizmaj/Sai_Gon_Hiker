@@ -5,17 +5,11 @@ VisualStudioVersion = 16.6.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaiGonHiker", "SaiGonHiker\SaiGonHiker.csproj", "{119726B2-B0AA-4256-A1B3-27B603754645}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaiGonHiker.Tests", "SaiGonHiker.Tests\SaiGonHiker.Tests.csproj", "{95A19A0B-5D6C-472D-9AFE-5DC68E053720}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaiGonHiker.DataAccessor", "SaiGonHiker.DataAccessor\SaiGonHiker.DataAccessor.csproj", "{D63D1604-5A65-4DE8-A158-660369DE02AA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaiGonHiker.Business", "SaiGonHiker.Business\SaiGonHiker.Business.csproj", "{E05857E5-9DE6-4340-AF43-B0A75F9D5838}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaiGonHiker.Contracts", "SaiGonHiker.Contracts\SaiGonHiker.Contracts.csproj", "{44F596E2-8132-4917-B89C-26249771895D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaiGonHiker.UnitTests", "SaiGonHiker.UnitTests\SaiGonHiker.UnitTests.csproj", "{4D77CA1D-FD1A-4EEC-8756-341A2D5FA5EB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaiGonHiker.IntegrationTests", "SaiGonHiker.IntegrationTests\SaiGonHiker.IntegrationTests.csproj", "{8F3DEDF6-E612-4DA0-A38D-2B62C7A41DEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -57,8 +57,8 @@ const Login = () => {
             >
               {(actions) => (
                 <Form className='intro-y'>
-                  <TextField name="userName" label="Username" placeholder="john" required />
-                  <TextField name="password" label="Password" type="password" required />
+                  <TextField name="userName" label="Username" placeholder="john" isrequired />
+                  <TextField name="password" label="Password" type="password" isrequired />
 
                   {error?.error && (
                     <div className="invalid">

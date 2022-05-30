@@ -8,7 +8,7 @@ type Props = {
 }
 
 const ButtonIcon: React.FC<Props> = ({ children, disable, onClick, className }) => {
-    const style = disable ? 'disable cursor-default' : 'pointer';
+    const style = disable ? 'disable' : 'pointer';
 
     const handleClick = (e) => {
         e.stopPropagation();

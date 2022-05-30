@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 
 const config: AxiosRequestConfig = {
-    baseURL: process.env.REACT_APP_API_URL
+    baseURL: '/'
 }
 
 class RequestService {

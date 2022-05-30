@@ -7,20 +7,19 @@ import IError from "src/interfaces/IError";
 import ILoginModel from "src/interfaces/ILoginModel";
 import ISubmitAction from "src/interfaces/ISubmitActions";
 
-import { setAccount, setStatus, accountAuthReject } from "../reducer";
+import { setAccount, setStatus } from "../reducer";
 import { loginRequest, getMeRequest, putChangePassword } from './requests';
 
 export function* handleLogin(action: PayloadAction<ILoginModel>) {
     const loginModel = action.payload;
+    
     try {
         const {data} = yield call(loginRequest, loginModel);
-        if (data.isSuccess && !data.isDisabled){
-            yield put(setAccount(data));
-        }else{
-            yield put(accountAuthReject(data));
-        }
+        yield put(setAccount(data));
+
     } catch (error: any) {
         const errorModel = error.response.data as IError;
+
         yield put(setStatus({
             status: Status.Failed,
             error: errorModel,
@@ -31,30 +30,18 @@ export function* handleLogin(action: PayloadAction<ILoginModel>) {
 export function* handleGetMe() {
     try {
         const {data} = yield call(getMeRequest);
+
         if (data.userName) {
-            if (!data.isDisabled)
             yield put(setAccount(data));
-            else
-            yield put(accountAuthReject(data));
         }
+
     } catch (error: any) {
-        const errorModel = error.response.data as IError;
-        if (error.response.status === 401){
-            yield put(setStatus({
-                status: Status.Unauthentication,
-                error: errorModel,
-            }));
-        }else{
-            yield put(setStatus({
-                status: Status.Failed,
-                error: errorModel,
-            }));
-        }
+        // console.log('login err: ', error.response.data);
     }
 }
 
 export function* handleChangePassword(action: PayloadAction<ISubmitAction<IChangePassword>>) {
-    const {values} = action.payload;
+    const {values, formikActions} = action.payload;
 
     try {
         const { data } = yield call(putChangePassword, values);
@@ -66,6 +53,11 @@ export function* handleChangePassword(action: PayloadAction<ISubmitAction<IChang
 
     } catch (error: any) {
         const errorModel = error.response.data as IError;
+
+        formikActions.setErrors({
+            currentPassword: errorModel.message,
+        });
+
         yield put(setStatus({}));
     }
 }

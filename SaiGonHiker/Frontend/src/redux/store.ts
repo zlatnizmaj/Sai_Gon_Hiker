@@ -2,19 +2,11 @@ import { configureStore, getDefaultMiddleware, combineReducers } from '@reduxjs/
 import createSagaMiddleware from 'redux-saga';
 
 import authReducer from 'src/containers/Authorize/reducer';
-import userReducer from 'src/containers/ManageUser/reducer';
-import assetReducer from 'src/containers/ManageAsset/reducer';
-import assignmentReducer from 'src/containers/ManageAssignment/reducer';
-import myassignmentReducer from 'src/containers/MyAssignment/reducer';
 
 import rootSaga from './sagas/rootSaga';
 
 const reducer = combineReducers({
-    authReducer,
-    userReducer,
-    assetReducer,
-    assignmentReducer,
-    myassignmentReducer
+    authReducer
 });
 
 const sagaMiddleware = createSagaMiddleware();
