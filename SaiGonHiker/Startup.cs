@@ -1,19 +1,19 @@
-using Rookie.AssetManagement.Extensions.ServiceCollection;
+using SaiGonHiker.Extensions.ServiceCollection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Rookie.AssetManagement.Middlewares;
+using SaiGonHiker.Middlewares;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Rookie.AssetManagement.Business;
-using Rookie.AssetManagement.DataAccessor;
+using SaiGonHiker.Business;
+using SaiGonHiker.DataAccessor;
 using FluentValidation.AspNetCore;
 using System.Reflection;
 
-namespace Rookie.AssetManagement
+namespace SaiGonHiker
 {
     public class Startup
     {
@@ -60,7 +60,7 @@ namespace Rookie.AssetManagement
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Rookie.AssetManagement v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SaiGonHiker v1"));
             }
             else
             {
