@@ -1,7 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { loginUser } from '../redux/apiRequest';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from "react-router"
 
 function LoginForm(props) {
-
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     useEffect(() => {
         let formBtn = document.querySelector('#login-btn');
         let loginForm = document.querySelector('.login-form-container');
@@ -15,14 +21,22 @@ function LoginForm(props) {
         });
         
     }, [])
+    const handleLogin = (e)=>{
+        e.preventDefault()
+        const user = {
+            email: email,
+            password: password,
+        }
+        loginUser(user,dispatch, navigate)
+    }
     return (
         <div className="login-form-container">
             <i className="fas fa-times" id="form-close" />
             <form>
                 <h3>login</h3>
-                <input type="email" name="email" className="box" placeholder="enter your email" />
-                <input type="password" name="password" className="box" placeholder="enter your password" />
-                <input type="submit" defaultValue="login now" className="btn" />
+                <input type="email" onChange={(e)=>setEmail(e.target.value)} name="email" className="box" placeholder="enter your email" />
+                <input type="password" onChange={(e)=>setPassword(e.target.value)} name="password" className="box" placeholder="enter your password" />
+                <input type="submit" defaultValue="login now" className="btn" onClick={handleLogin} />
                 <input type="checkbox" id="remember" />
                 <label htmlFor="remember">remember me</label>
                 <p>forget password? <a href="#">click here</a></p>
