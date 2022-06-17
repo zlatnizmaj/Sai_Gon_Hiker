@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="NPOI" Version="2.5.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SaiGonHiker.Contracts\SaiGonHiker.Contracts.csproj" />
+    <ProjectReference Include="..\SaiGonHiker.DataAccessor\SaiGonHiker.DataAccessor.csproj" />
+  </ItemGroup>
+
+</Project>
