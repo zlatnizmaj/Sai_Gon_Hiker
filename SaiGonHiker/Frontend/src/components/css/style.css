@@ -1,0 +1,24 @@
+.icons {
+    display: block;
+    position: relative;
+    width: 120px;
+    height: 23px;
+}
+.icons #icon-1 {
+    display: block;
+    margin-top: 25px;
+    width: 30px;
+    
+}
+.icons #icon-2 {
+    display: block;
+    bottom: 25px;
+    width: 80px;
+}
+.user-login {
+    display: inline-block;
+    position: absolute;
+    width: 70px;
+    top: 6px;
+    color: white;
+}
