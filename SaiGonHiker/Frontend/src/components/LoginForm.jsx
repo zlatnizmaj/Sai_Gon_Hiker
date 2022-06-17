@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router"
 
 function LoginForm(props) {
-    const [formProps, setFormProps] = useState(props.formProps)
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const dispatch = useDispatch();
@@ -12,15 +11,17 @@ function LoginForm(props) {
     const handleLogin = (e) => {
         e.preventDefault()
         const user = {
-            email: email,
+            userName: email,
             password: password,
         }
         loginUser(user, dispatch, navigate)
     }
-    
+    const handleClose= () => {
+        navigate("/")
+    }
     return (
         <div className="login-form-container">
-            <i className="fas fa-times" id="form-close" onClick={() => setFormProps(!formProps)} />
+            <i className="fas fa-times" id="form-close" onclick={handleClose} />
             <form>
                 <h3>login</h3>
                 <input type="email" onChange={(e) => setEmail(e.target.value)} name="email" className="box" placeholder="enter your email" />

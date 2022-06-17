@@ -51,6 +51,17 @@ namespace SaiGonHiker
                 configuration.RootPath = "Frontend/build";
             });
             services.AddSwagger();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigins",
+                    builder =>
+                    {
+                        builder.WithOrigins(Configuration["AllowOrigins"])
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,7 +80,7 @@ namespace SaiGonHiker
 
             app.UseHttpsRedirection();
             app.UseSpaStaticFiles();
-
+            app.UseCors("AllowOrigins");
             app.UseRouting();
 
             app.UseAuthentication();

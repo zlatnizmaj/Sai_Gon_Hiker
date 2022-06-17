@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './css/style.css';
 import LoginForm from './LoginForm';
 function Header(props) {
     const [status, setStatus] = useState(false)
-    const [user, setUser] = useState()
+    const [user, setUser] = useState(useSelector((state) => state.auth.login?.currentUser))
     const displayChange = () => {
         let menu = document.getElementById('menu-bar')
         let navbar = document.querySelector('.navbar');
         menu.classList.toggle('fa-times');
         navbar.classList.toggle('active');
-        console.log(1);
     }
     const statusFormLogin = ()=> {
-        console.log(status)
         if(status){
-            return (<LoginForm formProps={status} />)
+            return (<LoginForm />)
         }
     }
     const checkUser = () => {
@@ -29,7 +28,7 @@ function Header(props) {
             return (
                 <div className="icons">
                     <i className="fas fa-search" id="search-btn" />
-                    <p className="user-login">da dang nhap</p>
+                    <p className="user-login">{user?.userName}</p>
                 </div>
             )
         }
