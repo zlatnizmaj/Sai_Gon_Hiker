@@ -19,11 +19,11 @@ function App() {
     navbar.classList.remove('active');
     loginForm.classList.remove('active');
   }
-
+ 
   return (
     <div className="app">
       <Header />
-      <LoginForm />
+      {/* <LoginForm /> */}
       <HomeSection />
       <BookTourForm />
       <Footer />
