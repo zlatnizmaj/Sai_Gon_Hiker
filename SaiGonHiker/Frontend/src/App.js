@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import HomeSection from "./components/HomeSection";
 import LoginForm from "./components/LoginForm";
 import Footer from "./components/Footer";
+import BookTourForm from "./components/BookTourForm";
 
 function App() {
   let searchBtn = document.querySelector('#search-btn');
@@ -18,12 +19,13 @@ function App() {
     navbar.classList.remove('active');
     loginForm.classList.remove('active');
   }
-
+ 
   return (
     <div className="app">
       <Header />
-      <LoginForm />
+      {/* <LoginForm /> */}
       <HomeSection />
+      <BookTourForm />
       <Footer />
     </div>
 
