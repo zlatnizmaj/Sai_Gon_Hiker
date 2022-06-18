@@ -1,0 +1,1 @@
+link install .NET 5.0: https://stackoverflow.com/questions/62942913/install-dotnet-core-on-ec2-linux-ami-2-c6g
