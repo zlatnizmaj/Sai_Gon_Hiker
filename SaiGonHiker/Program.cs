@@ -4,7 +4,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SaiGonHiker.DataAccessor.Data;
-using SaiGonHiker.DataAccessor.Data.Seeds;
 using SaiGonHiker.DataAccessor.Entities;
 using System.Threading.Tasks;
 

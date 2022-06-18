@@ -18,7 +18,7 @@ namespace SaiGonHiker.Extensions.ServiceCollection
     {
         public static void AddAuthenticationRegister(this IServiceCollection services)
         {
-            // services.AddIdentity<Users, IdentityRole<int>>(options =>
+            // services.AddIdentity<, IdentityRole<int>>(options =>
             // {
             //     options.SignIn.RequireConfirmedAccount = false;
             //     options.Password.RequireDigit = true;

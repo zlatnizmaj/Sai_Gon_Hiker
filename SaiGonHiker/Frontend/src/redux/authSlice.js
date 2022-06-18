@@ -39,7 +39,12 @@ const authSlice = createSlice({
         }
     }
 })
-export const { loginStart, loginFailed, loginSuccess,
-    registerStart, registerFailed, registerSuccess,
+export const {
+    loginStart,
+    loginFailed,
+    loginSuccess,
+    registerStart,
+    registerFailed,
+    registerSuccess,
 } = authSlice.actions;
 export default authSlice.reducer

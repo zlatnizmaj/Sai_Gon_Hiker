@@ -1,14 +1,20 @@
 import axios from 'axios';
 import {
-    loginFailed, loginStart, loginSuccess,
-    registerStart, registerFailed, registerSuccess
+    loginFailed,
+    loginStart,
+    loginSuccess,
+    registerStart,
+    registerFailed,
+    registerSuccess
 }
-    from './authSlice';
+from './authSlice';
 
-export const loginUser = async (user, dispatch, navigate) => {
+export const loginUser = async(user, dispatch, navigate) => {
     dispatch(loginStart())
     try {
-        const res = await axios.post("http://localhost:5501/v1/login", user)
+
+        const res = await axios.post("https://localhost:5001/api/Auth", user)
+        console.log(user)
         dispatch(loginSuccess(res.data))
         navigate("/")
     } catch (err) {
@@ -16,10 +22,10 @@ export const loginUser = async (user, dispatch, navigate) => {
     }
 }
 
-export const registerUser = async (user, dispatch, navigate) => {
+export const registerUser = async(user, dispatch, navigate) => {
     dispatch(registerStart())
     try {
-        await axios.post("http://localhost:5501/v1/register", user)
+        await axios.post("https://localhost:5001/api/Auth", user)
         dispatch(registerSuccess())
         navigate("/login")
     } catch (err) {
